@@ -47,9 +47,9 @@ function fechainteligente($timestamp)
 	else if ($diff < 60) return "hace ".ConSoSinS(floor($diff), ' segundo(s)');
 	else if ($diff < 60*60) return "hace ".ConSoSinS(floor($diff/60), ' minuto(s)');
 	else if ($diff < 60*60*24) return "hace ".ConSoSinS(floor($diff/(60*60)), ' hora(s)');
-	else if ($diff < 60*60*24*30) return "hace ".ConSoSinS(floor($diff/(60*60*24)), ' día(s)');
+	else if ($diff < 60*60*24*30) return "hace ".ConSoSinS(floor($diff/(60*60*24)), ' dï¿½a(s)');
 	else if ($diff < 60*60*24*30*12) return "hace ".ConSoSinS(floor($diff/(60*60*24*30)), ' mes(es)');
-	else return "hace ".ConSoSinS(floor($diff/(60*60*24*30*12)), ' año(s)');
+	else return "hace ".ConSoSinS(floor($diff/(60*60*24*30*12)), ' aï¿½o(s)');
 }
 
 
@@ -62,7 +62,6 @@ function ConSoSinS($val, $sentence)
 /********************************************************************/
 //cotizacion4.php?id_cita=2&&id_cotizacion=1
 $id_cita=$_GET['id'];
-//$id_cotizacion=$_GET['id_cotizacion'];
 
 	$info=$cit->mostrar_byid($id_cita);
 	foreach($info as $ci){
@@ -123,7 +122,7 @@ $id_cita=$_GET['id'];
 
          <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-            <div class="navbar-header">
+             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
@@ -323,7 +322,7 @@ $id_cita=$_GET['id'];
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="/Alfinte/logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -343,26 +342,109 @@ $id_cita=$_GET['id'];
                             <a href="index.php"><i class="fa fa-bar-chart-o fa-fw"></i> Ventas<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                <li>
-                                    <a href="index.php">Cita <span class="fa arrow"></span></a>
-                                    <ul class="nav nav-third-level">
-                                        <li>
-                                            <a href="ver_categoria.php">Crear Cita</a>
-                                        </li>
-                                        <li>
-                                            <a href="ver_categoria.php">Confirmar Cita</a>
-                                        </li>
-                                    </ul>
-                                    <!-- /.nav-third-level -->
-                                </li>
-								<li>
-                                    <a href="ver_cita.php">Asignaciones</a>
-                                </li>
-								<li>
-                                    <a href="cotizacion.php">Cotizaciones</a>
-                                </li>
-                                <li>
-                                    <a href="facturas.php">Facturas</a>
-                                </li>
+                                   <?php
+										if ($cargo==1)
+											{
+											$url_asignada=$urlasig;
+                                                                                        $ir_a=$envio;
+											}
+											else if($cargo==2)
+											{
+												$url_asignada=$urlasig2_1;
+                                                                                                $url_asignada2=$urlasig2_2;
+                                                                                                $url_asignada3=$urlasig2_3;
+                                                                                                $url_asignada4=$urlasig2_4;
+                                                                                                $ir_a=$envio;
+                                                                                                $ir_a2=$envio2_2;
+                                                                                                $ir_a3=$envio2_3;
+                                                                                                $ir_a4=$envio2_4;
+                                                                                                echo"<a href='".$url_asignada."'>".$ir_a."<span class='fa arrow'></span></a> 
+                                                                                            <ul class='nav nav-third-level'>
+                                                                                                <li>
+                                                                                                    <a href='".$url_asignada2."'>".$ir_a2."</a>
+                                                                                                </li>
+                                                                                                <li>
+                                                                                                    <a href='".$url_asignada3."'>".$ir_a3."</a>
+                                                                                                </li>
+                                                                                                <li>
+                                                                                                    <a href='".$url_asignada4."'>".$ir_a4."</a>
+                                                                                                </li>
+                                                                                                </ul>
+                                                                                               </li>";
+											}
+                                                                                        else if($cargo==3){
+                                                                                            $url_asignada=$urlasig;
+                                                                                            $ir_a=$envio;
+                                                                                            $url_asignada2=$urlasig2;
+                                                                                            $url_asignada3=$urlasig3;
+                                                                                            $url_asignada4=$urlasig4;
+                                                                                            $url_asignada5=$urlasig5;
+                                                                                            $url_asignada6=$urlasig6;
+                                                                                            $url_asignada7=$urlasig7;
+                                                                                            $url_asignada8=$urlasig8;
+                                                                                            $url_asignada9=$urlasig9;
+                                                                                            $url_asignada10=$urlasig10;
+                                                                                            $url_asignada11=$urlasig11;
+                                                                                            $url_asignada12=$urlasig12;
+                                                                                            $url_asignada13=$urlasig13;
+                                                                                            $ir_a2=$envio2;
+                                                                                            $ir_a3=$envio3;
+                                                                                            $ir_a4=$envio4;
+                                                                                            $ir_a5=$envio5;
+                                                                                            $ir_a6=$envio6;
+                                                                                            $ir_a7=$envio7;
+                                                                                            $ir_a8=$envio8;
+                                                                                            $ir_a9=$envio9;
+                                                                                            $ir_a10=$envio10;
+                                                                                            $ir_a11=$envio11;
+                                                                                            $ir_a12=$envio12;
+                                                                                            $ir_a13=$envio13;
+                                                                                            echo"<a href='".$url_asignada."'>".$ir_a."<span class='fa arrow'></span></a> 
+                                                                                            <ul class='nav nav-third-level'>
+                                                                                                <li>
+                                                                                                    <a href='".$url_asignada2."'>".$ir_a2."</a>
+                                                                                                </li>
+                                                                                                <li>
+                                                                                                    <a href='".$url_asignada3."'>".$ir_a3."</a>
+                                                                                                </li>
+                                                                                                <li>
+                                                                                                    <a href='".$url_asignada4."'>".$ir_a4."</a>
+                                                                                                </li>
+                                                                                            </ul>
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                <a href='".$url_asignada5."'>".$ir_a5."<span class='fa arrow'></span></a> 
+                                                                                                <ul class='nav nav-third-level'>
+                                                                                                    <li>
+                                                                                                        <a href='".$url_asignada6."'>".$ir_a6."</a>
+                                                                                                    </li>
+                                                                                                    <li>
+                                                                                                        <a href='".$url_asignada7."'>".$ir_a7."</a>
+                                                                                                    </li>
+                                                                                                    <li>
+                                                                                                        <a href='".$url_asignada8."'>".$ir_a8."</a>
+                                                                                                    </li>
+                                                                                                    <li>
+                                                                                                        <a href='".$url_asignada9."'>".$ir_a9."</a>
+                                                                                                    </li>
+                                                                                                </ul>
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                <a href='".$url_asignada10."'>".$ir_a10."<span class='fa arrow'></span></a> 
+                                                                                                <ul class='nav nav-third-level'>
+                                                                                                    <li>
+                                                                                                        <a href='".$url_asignada11."'>".$ir_a11."</a>
+                                                                                                    </li>
+                                                                                                    <li>
+                                                                                                        <a href='".$url_asignada12."'>".$ir_a12."</a>
+                                                                                                    </li>
+                                                                                                    <li>
+                                                                                                        <a href='".$url_asignada13."'>".$ir_a13."</a>
+                                                                                                    </li>
+                                                                                                </ul>
+                                                                                            </li>";
+                                                                                        }
+									?>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
@@ -475,7 +557,7 @@ $id_cita=$_GET['id'];
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-						 <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+						 <li><a href="/Alfinte/logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                 </div>
@@ -515,37 +597,30 @@ $id_cita=$_GET['id'];
 										<p>
 										<div class="col-xs-6">
 											<div class="form-group">
-													<input class="form-control" placeholder="Buscar Cliente">
-											</div>
-											<div class="form-group">
-											<input class="form-control" id="id_cita" value=<?php echo $id_cita; ?> type="hidden" >
+											<input class="form-control" id="id_cita" value=<?php echo $id_cita; ?> type="hidden" disabled>
 												<label>Nombre</label>
-													<input class="form-control" id="nombre" value=<?php echo $nombre; ?> >
+													<input class="form-control" id="nombre" value=<?php echo $nombre; ?> disabled >
 											</div>
 											<div class="form-group">
 												<label>Telefono</label>
-													<input class="form-control" id="telefono" value=<?php echo $telefono;?>>
+													<input class="form-control" id="telefono" value=<?php echo $telefono;?> disabled>
 											</div>
 											
 										</div>
 										<div class="col-xs-6">
-												<div class="form-group">
-													<button type="submit" class="btn btn-primary">Buscar </button>
-												</div>
-											
-												<div class="form-group">
+                                                                                                <div class="form-group">
 													<label>Apellido</label>
-													<input class="form-control" id="apellido" value=<?php echo $apellido; ?>>
+                                                                                                        <input class="form-control" id="apellido" value=<?php echo $apellido; ?> disabled>
 												</div>
 												<div class="form-group">
 													<label>Direccion</label>
-													<input class="form-control" id="direccion" value=<?php echo $direccion; ?>>
+													<input class="form-control" id="direccion" value=<?php echo $direccion; ?> disabled>
 												</div>
 											</div>
 											<div class="col-lg-8">
 												<div class="form-group">
 													<label>Comentarios</label>
-													<textarea class="form-control" rows="2" id="coment" ><?php echo $coment; ?></textarea>
+													<textarea class="form-control" rows="2" id="coment" disabled ><?php echo $coment; ?></textarea>
 												</div>
 											</div>
 									</div>
@@ -592,9 +667,14 @@ $id_cita=$_GET['id'];
                             </div>
 						</div>
 					</div>
+                                    
 				</div>
 					
-					<div class="col-lg-10">
+					
+					
+					
+				</form>
+                            <div class="col-lg-10">
 						<div class="panel panel-yellow">
 								<div class="panel-heading">
 									Cotizacion
@@ -638,20 +718,10 @@ $id_cita=$_GET['id'];
 									</div>
 										
 								</div>
-								
-								<div class="panel-footer">
-									Panel Footer
-								</div>
 						</div>
 						<!-- /.col-lg-4 -->
 						
 					</div>
-					
-					
-				</form>
-			</div>
-			<div class="row">
-			
 			</div>
 
 		</div>

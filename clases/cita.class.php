@@ -14,6 +14,8 @@
     public $id_estado;
     public $comentario;
 	public $id_empleado;
+	public $nit;
+	public $id_cliente;
 
 
      public function agregar(){

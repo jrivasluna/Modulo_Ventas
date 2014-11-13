@@ -82,10 +82,10 @@ if ($_SERVER['REQUEST_METHOD']=='POST') { // �Nos mandan datos por el formular
                         <form role="form" action="login.php" method="POST">
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Usuario" name="usuario" type="usuario" autofocus required>
+                                    <input class="form-control" placeholder="Usuario" name="usuario" type="usuario" autofocus>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="password" type="password" value="" required>
+                                    <input class="form-control" placeholder="Password" name="password" type="password" value="">
                                 </div>
                                 <!--<div class="checkbox">
                                     <label>

@@ -20,8 +20,19 @@
     public $largo;
     public $area;
 	public $volumen;
+/**********************Cotizacion**********************************/
     public $id_cotizacion;
 
+	public $resumen;
+	public $monto_descuento;
+	public $subtotal;
+	public $porcentaje_anticipo;
+	public $dia_validez;
+	public $porcentaje_descuento;
+	public $id_tiempo_entrega;
+	public $id_cotizacion_estado;
+	public $id_cita;
+	/**********************Cotizacion**********************************/
 
      public function agregar(){
     $query="INSERT INTO articulo_ter VALUES ('{$this->id_articulo}',
@@ -274,6 +285,7 @@
           }
             return $array;
         }
+
      public function mostrar3($id){
         $query="SELECT `id_articulo`,
 						`articulo_ter`.`descripcion`,
@@ -295,8 +307,44 @@
              return $array;
         }
 		
-		
-		public function cotizacion_detalle(){
+	public function total_cotizacion($id_cotizacion){
+	$query="select sum(total) 'Total'
+			from cotizacion_detalle
+			where id_cotizacion=".$id_cotizacion;
+	$rs=mysql_query($query);
+        if (!$rs) {
+                    echo 'No se pudo ejecutar la consulta: ' . mysql_error();
+                    exit;}
+        $fila = mysql_fetch_row($rs);
+        $num=$fila[0];
+         $num = (double)$num;
+             return $num;
+	}
+	
+	
+	/************************************************************************************/
+	public function cotizacion(){
+    $query="INSERT INTO cotizacion VALUES ('{$this->id_cotizacion}',
+                                        '{$this->resumen}',
+                                        '{$this->fecha_creacion}',
+                                        '{$this->monto_descuento}',
+										'{$this->total}',
+                                        '{$this->sub_total}',
+										'{$this->porcentaje_anticipo}',
+										'{$this->dia_validez}',
+										'{$this->porcentaje_descuento}',
+										'{$this->id_tiempo_entrega}',
+										'{$this->id_cotizacion_estado}',
+										'{$this->id_cita}')";
+    $result=mysql_query($query) or die (mysql_error());
+	//echo $query;
+	if ($result) {
+    	} else {
+			echo 'failure' . mysql_error();
+		}
+	 return $result;
+    }	
+	public function cotizacion_detalle(){
     $query="INSERT INTO cotizacion_detalle VALUES ('{$this->id_coti_detalle}',
                                         '{$this->cantidad}',
                                         '{$this->precio}',
@@ -310,8 +358,11 @@
 										'{$this->id_cotizacion}')";
      $result=mysql_query($query) or die ("Problema con query de Insertar");
 	 echo $query;
+
      return $result;
     }
+
+
 
 }
 ?>
