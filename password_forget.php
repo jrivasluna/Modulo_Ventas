@@ -76,16 +76,13 @@ if ($_SERVER['REQUEST_METHOD']=='POST') { // �Nos mandan datos por el formular
             <div class="col-md-4 col-md-offset-4">
                 <div class="login-panel panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Por Favor Inicie Sesion</h3>
+                        <h3 class="panel-title">¿Cual es su Usuario?</h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form" action="login.php" method="POST">
+                        <form role="form" action="forget.html" method="POST">
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Usuario" name="usuario" type="usuario" autofocus>
-                                </div>
-                                <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                    <input class="form-control" placeholder="Usuario" name="usuario" type="usuario" required="Ingrese su Usuario">
                                 </div>
                                 <!--<div class="checkbox">
                                     <label>
@@ -93,9 +90,9 @@ if ($_SERVER['REQUEST_METHOD']=='POST') { // �Nos mandan datos por el formular
                                     </label>
                                 </div> -->
                                 <!-- Change this to a button or input when using this as a form -->
-								<input type="submit" value="Entrar" class="btn btn-lg btn-success btn-block" />
+								<input type="submit" value="Enviar Datos" class="btn btn-lg btn-success btn-block">
                                 <!--<a href="index.html" class="btn btn-lg btn-success btn-block">Login</a>-->
-								<a href="password_forget.php" >si olvido su contraseña , contactar al administrador</a>
+								
                             </fieldset>
                         </form>
                     </div>
