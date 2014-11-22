@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST') { // �Nos mandan datos por el formular
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Alfinte Intranet</title>
+    <title>SB Admin 2 - Bootstrap Admin Theme</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -95,7 +95,6 @@ if ($_SERVER['REQUEST_METHOD']=='POST') { // �Nos mandan datos por el formular
                                 <!-- Change this to a button or input when using this as a form -->
 								<input type="submit" value="Entrar" class="btn btn-lg btn-success btn-block" />
                                 <!--<a href="index.html" class="btn btn-lg btn-success btn-block">Login</a>-->
-								<a href="password_forget.php" >si olvido su contraseña , contactar al administrador</a>
                             </fieldset>
                         </form>
                     </div>
