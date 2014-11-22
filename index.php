@@ -334,8 +334,8 @@ function ConSoSinS($val, $sentence)
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="#"><i class="fa fa-user fa-fw"></i> <?php echo $sesion->get("usuario"); ?> Profile</a>
                         </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                        </li>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i>Cambiar Contraseña</a></li>
+                        <li><a href="manuales/manuales.php"><i class="fa fa-gear fa-fw"></i> Ayuda</a></li>
                         <li class="divider"></li>
                         <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
@@ -582,8 +582,6 @@ function ConSoSinS($val, $sentence)
 											}
 											else if($cargo==2)
 											{
-												$rcate=$cit->cantidad_citas_user($usuario);
-											}else if($cargo==3){
 												$rcate=$cit->cantidad_cita_pendiente($usuario);
 											};
 											foreach($rcate as $ci){
@@ -629,8 +627,6 @@ function ConSoSinS($val, $sentence)
 											}
 											else if($cargo==2)
 											{
-												$rcate=$cit->cantidad_cita_asignada();	
-											}else if($cargo==3){
 												$rcate=$cit->cantidad_cita_confirmada($usuario);
 											};
 										
