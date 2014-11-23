@@ -1,7 +1,14 @@
 <?php
-include('libreria/motor.php');
-
-require_once("clases/sesion.class.php");
+include'../libreria/conf.php';
+include'../libreria/conexion.php';
+include('../clases/usuario.php');
+include('../clases/login.class.php');
+//include('clases/sesion.class.php');
+include('../clases/cita.class.php');
+include('../clases/materia.class.php');
+include('../clases/articulo.class.php');
+include('../clases/empleado.class.php');
+require_once '../clases/sesion.class.php';
 //$login=new Login();
    $sesion = new Sesion();
    $usuario = $sesion->get("usuario");
@@ -47,9 +54,9 @@ function fechainteligente($timestamp)
 	else if ($diff < 60) return "hace ".ConSoSinS(floor($diff), ' segundo(s)');
 	else if ($diff < 60*60) return "hace ".ConSoSinS(floor($diff/60), ' minuto(s)');
 	else if ($diff < 60*60*24) return "hace ".ConSoSinS(floor($diff/(60*60)), ' hora(s)');
-	else if ($diff < 60*60*24*30) return "hace ".ConSoSinS(floor($diff/(60*60*24)), ' día(s)');
+	else if ($diff < 60*60*24*30) return "hace ".ConSoSinS(floor($diff/(60*60*24)), ' dï¿½a(s)');
 	else if ($diff < 60*60*24*30*12) return "hace ".ConSoSinS(floor($diff/(60*60*24*30)), ' mes(es)');
-	else return "hace ".ConSoSinS(floor($diff/(60*60*24*30*12)), ' año(s)');
+	else return "hace ".ConSoSinS(floor($diff/(60*60*24*30*12)), ' aï¿½o(s)');
 }
 
 

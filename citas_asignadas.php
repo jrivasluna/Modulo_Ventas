@@ -1,6 +1,14 @@
 <?php
-include('libreria/motor.php');
-require_once("clases/sesion.class.php");
+include'../libreria/conf.php';
+include'../libreria/conexion.php';
+include('../clases/usuario.php');
+include('../clases/login.class.php');
+//include('clases/sesion.class.php');
+include('../clases/cita.class.php');
+include('../clases/materia.class.php');
+include('../clases/articulo.class.php');
+include('../clases/empleado.class.php');
+require_once '../clases/sesion.class.php';
 $cit=new cita();
 
 

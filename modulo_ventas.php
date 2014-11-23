@@ -1,7 +1,14 @@
 <?php
-include('libreria/motor.php');
-require_once("clases/sesion.class.php");
-
+include'../libreria/conf.php';
+include'../libreria/conexion.php';
+include('../clases/usuario.php');
+include('../clases/login.class.php');
+//include('clases/sesion.class.php');
+include('../clases/cita.class.php');
+include('../clases/materia.class.php');
+include('../clases/articulo.class.php');
+include('../clases/empleado.class.php');
+require_once '../clases/sesion.class.php';
 //$login=new Login();
      $sesion = new Sesion();
    $usuario = $sesion->get("usuario");
@@ -9,7 +16,7 @@ require_once("clases/sesion.class.php");
       header("Location: login.php");
    }  else  {
 
-$emp=new empleado();
+$emp= new empleado();
    $cit=new cita();
 $art=new articulo();
 $materiales=new materia();
@@ -138,7 +145,7 @@ function ConSoSinS($val, $sentence)
                 <a class="navbar-brand" href="modulo_ventas.php">Alfinte S.A de CV</a>
             </div>
             <!-- /.navbar-header -->
-
+            <a href="../libreria/motor.php"></a>
             <ul class="nav navbar-top-links navbar-right">
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
