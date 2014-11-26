@@ -35,6 +35,8 @@
 	public $fecha_hasta_antes;
 	/**********************Cotizacion**********************************/
 	
+
+
      public function agregar(){
     $query="INSERT INTO articulo_ter VALUES ('{$this->id_articulo}',
                                         '{$this->descripcion}',
@@ -156,9 +158,13 @@
 				`disponible_web` ,
 				`articulo_ter`.`descripcion` ,
 				`articulo_pre`.`precio` ,
+
 				`articulo_ter`.`id_articulo`
 				FROM `articulo_ter` , `articulo_pre` , `articulo_cat`
 				WHERE `articulo_ter`.`id_articulo` = `articulo_pre`.`id_articulo`
+
+
+
 				AND `articulo_ter`.`id_categoria` = `articulo_cat`.`id_categoria`
 				AND `articulo_ter`.`id_categoria`=".$id." 
 				AND articulo_pre.estado='A'
@@ -198,6 +204,7 @@
 				AND `articulo_ter`.`id_categoria` = `articulo_cat`.`id_categoria`
 				AND articulo_pre.estado='A'
 				ORDER BY `articulo_ter`.`id_articulo` ASC LIMIT 10 ";
+
 						//INNER JOIN  `cita_estado` ON `cita`.id_estado = `cita_estado`.id_citaest limit 9";
         $rs=mysql_query($query);
         $array=array();
@@ -262,6 +269,7 @@
 										'{$this->id_articulo}',
 										'A')";
      $result=mysql_query($query) or die (mysql_error());
+
      return $result;
     }
 

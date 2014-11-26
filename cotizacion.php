@@ -98,22 +98,22 @@ $id_cita=$_GET['id'];
     <title>Sistema de Administracion</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
 
     <!-- MetisMenu CSS -->
-    <link href="css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
+    <link href="../css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
 
     <!-- DataTables CSS -->
-    <link href="css/plugins/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="../css/plugins/dataTables.bootstrap.css" rel="stylesheet">
 	
 	<!-- Edit Table CCSS -->
-	<link href="js/edit_table/editablegrid.css" rel="stylesheet">
+	<link href="../js/edit_table/editablegrid.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/sb-admin-2.css" rel="stylesheet">
+    <link href="../css/sb-admin-2.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -330,7 +330,7 @@ $id_cita=$_GET['id'];
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="/Alfinte/logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -668,30 +668,33 @@ $id_cita=$_GET['id'];
     <!-- /#wrapper -->
 
     <!-- jQuery Version 1.11.0 -->
-    <script src="js/jquery-1.11.0.js"></script>
+            <script src="../js/jquery-1.11.0.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+            <!-- Bootstrap Core JavaScript -->
+            <script src="../js/bootstrap.min.js"></script>
 
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="js/plugins/metisMenu/metisMenu.min.js"></script>
+            <!-- Metis Menu Plugin JavaScript -->
+            <script src="../js/plugins/metisMenu/metisMenu.min.js"></script>
 
-    <!-- DataTables JavaScript -->
-    <script src="js/plugins/dataTables/jquery.dataTables.js"></script>
-    <script src="js/plugins/dataTables/dataTables.bootstrap.js"></script>
+            <!-- Custom Theme JavaScript -->
+            <script src="../js/sb-admin-2.js"></script>
+
+            <!-- DataTables JavaScript -->
+            <script src="../js/plugins/dataTables/jquery.dataTables.js"></script>
+            <script src="../js/plugins/dataTables/dataTables.bootstrap.js"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="js/sb-admin-2.js"></script>
+    <script src="../js/sb-admin-2.js"></script>
 	
 	<!-- Ajax Customizado"-->
-	<script src="js/ajax.js"></script>
+	<script src="../js/ajax.js"></script>
 	
-	<script src="js/edit_table/editablegrid.js"></script>
-	<script src="js/edit_table/editablegrid_charts.js"></script>
-	<script src="js/edit_table/editablegrid_renderers.js"></script>
-	<script src="js/edit_table/editablegrid_editors.js"></script>
-	<script src="js/edit_table/editablegrid_utils.js"></script>
-	<script src="js/edit_table/editablegrid_validators.js"></script>
+	<script src="../js/edit_table/editablegrid.js"></script>
+	<script src="../js/edit_table/editablegrid_charts.js"></script>
+	<script src="../js/edit_table/editablegrid_renderers.js"></script>
+	<script src="../js/edit_table/editablegrid_editors.js"></script>
+	<script src="../js/edit_table/editablegrid_utils.js"></script>
+	<script src="../js/edit_table/editablegrid_validators.js"></script>
 
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
     <script>

@@ -1,5 +1,7 @@
 <?php
-include('libreria/motor.php');
+include'../libreria/conf.php';
+include'../libreria/conexion.php';;
+include('../clases/articulo.class.php');
 $articulos= new articulo();
 
 if(isset($_POST['q'])){
