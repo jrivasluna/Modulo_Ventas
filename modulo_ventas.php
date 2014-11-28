@@ -9,6 +9,7 @@ include('../clases/materia.class.php');
 include('../clases/articulo.class.php');
 include('../clases/empleado.class.php');
 require_once '../clases/sesion.class.php';
+$cit=new cita();
 //$login=new Login();
      $sesion = new Sesion();
    $usuario = $sesion->get("usuario");
@@ -16,8 +17,16 @@ require_once '../clases/sesion.class.php';
       header("Location: login.php");
    }  else  {
 
+       if(isset($_POST['enviar'])){
+	$cit=new cita();
+	$comentario=$_POST['comentario'];
+        $id_cita=$_POST['id_cita'];
+
+	
+	$update_cita= $cit->cancelar_cita($comentario,$id_cita);}
+        
 $emp= new empleado();
-   $cit=new cita();
+   
 $art=new articulo();
 $materiales=new materia();
 	$cargo=$cit->sabercargo($usuario);
@@ -45,7 +54,7 @@ $materiales=new materia();
                 $envio="Cita";
                 $urlasig2="crear_cita_local.php";
                 $urlasig3="citas_asignadas.php";
-                $urlasig4="cancelar_cita.php";
+                $urlasig4="citas_cancelar.php";
                 $urlasig5="index.php";
                 $urlasig6="citas_programadas.php";
                 $urlasig7="consultar_cotizacion.php";
@@ -111,16 +120,16 @@ function ConSoSinS($val, $sentence)
         <title>Modulo Ventas</title>
 
         <!-- Bootstrap Core CSS -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
 
         <!-- MetisMenu CSS -->
-        <link href="css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
+        <link href="../css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
 
         <!-- Custom CSS -->
-        <link href="css/sb-admin-2.css" rel="stylesheet">
+        <link href="../css/sb-admin-2.css" rel="stylesheet">
 
         <!-- Custom Fonts -->
-        <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="../font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -759,20 +768,20 @@ function ConSoSinS($val, $sentence)
             <!-- /#wrapper -->
         </div>
             <!-- jQuery Version 1.11.0 -->
-            <script src="js/jquery-1.11.0.js"></script>
+            <script src="../js/jquery-1.11.0.js"></script>
 
             <!-- Bootstrap Core JavaScript -->
-            <script src="js/bootstrap.min.js"></script>
+            <script src="../js/bootstrap.min.js"></script>
 
             <!-- Metis Menu Plugin JavaScript -->
-            <script src="js/plugins/metisMenu/metisMenu.min.js"></script>
+            <script src="../js/plugins/metisMenu/metisMenu.min.js"></script>
 
             <!-- Custom Theme JavaScript -->
-            <script src="js/sb-admin-2.js"></script>
+            <script src="../js/sb-admin-2.js"></script>
 
             <!-- DataTables JavaScript -->
-            <script src="js/plugins/dataTables/jquery.dataTables.js"></script>
-            <script src="js/plugins/dataTables/dataTables.bootstrap.js"></script>
+            <script src="../js/plugins/dataTables/jquery.dataTables.js"></script>
+            <script src="../js/plugins/dataTables/dataTables.bootstrap.js"></script>
     <script>
     $(document).ready(function() {
         $('#dataTables-example').dataTable();

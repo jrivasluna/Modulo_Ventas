@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <?php
 include'../libreria/conf.php';
 include'../libreria/conexion.php';
@@ -18,14 +12,15 @@ require_once '../clases/sesion.class.php';
 $cit=new cita();
 
 
-       
+	
+
 //$login=new Login();
    $sesion = new Sesion();
    $usuario = $sesion->get("usuario");
-   
    if( $usuario == false )  {
       header("Location: login.php");
    }  else  {
+ 
    
 
    
@@ -49,18 +44,17 @@ $emp=new empleado();
 		$mensaje1="Citas Pendientes";
                 $mensaje1_3="Ver Citas Pendientes";
 		$mensaje2="Citas Confirmadas";
-                $mensaje2_3="Ver Citas Confirmadas";
 		$mensaje3="Cotizacion Pendientes";
 		$mensaje4="Recibos Provicionales";
 		$url1="modulo_ventas.php";
-		$url2="citas_programadas.php";
+		$url2="confirmar_cita.php";
                 $urlasig="index.php";
                 $envio="Cita";
                 $urlasig2="crear_cita_local.php";
-                $urlasig3="citas_asignadas.php";
+                $urlasig3="confirmar_cita.php";
                 $urlasig4="citas_cancelar.php";
                 $urlasig5="index.php";
-                $urlasig6="citas_programadas.php";
+                $urlasig6="citas_asginadas.php";
                 $urlasig7="consultar_cotizacion.php";
                 $urlasig8="consultar_recibo_provisional.php";
                 $urlasig9="consultar_orden_trabajo.php";
@@ -68,11 +62,12 @@ $emp=new empleado();
                 $urlasig11="crear_cotizacion.php";
                 $urlasig12="crear_recibo_provisional.php";
                 $urlasig13="crear_factura.php";
+                $urlasig6_3="citas_programadas.php";
                 $envio2="Crear Cita";
                 $envio3="Confrmar Cita";
                 $envio4="Cancelar Cita";
                 $envio5="Consultas";
-                $envio6="Citas Programadas";
+                $envio6="Citas Asginadas";
                 $envio7="Cotizacion";
                 $envio8="Recibo Provisional";
                 $envio9="Orden de Trabajo";
@@ -80,59 +75,7 @@ $emp=new empleado();
                 $envio11="Crear Cotizacion";
                 $envio12="Crear Recibo Provisional";
                 $envio13="Crear Factura";
-                if(isset($_POST['enviar'])){
-        if($_POST['nombre'] == ''){
-        }else if($_POST['apellido'] == ''){
-        }else if($_POST['direccion'] == ''){
-        }else if($_POST['telefono'] == ''){
-        }else if($_POST['email'] == ''){
-        }else if($_POST['mensaje'] == ''){
-        }elseif($_POST['hora_programada'] == '') { 
-        }elseif($_POST['fecha_programada'] == ''){
-        }else{
-            $nombre = $_POST['nombre'];
-            $email = $_POST['email'];
-            $cuerpo = $_POST['mensaje'];
-            //se ingresan los datos a la entidad cita
-                 if(1==1){
-                           $cit=new cita();
-                           $id_cita=$cit->secqnos();
-                           $cit->id_cita=$id_cita;
-                           $cit->fecha_creacion=date("Y-m-d H:i:s");
-                           $cit->fecha_programada=$_POST['fecha_programada'];
-                           $cit->hora=$_POST['hora_programada'];
-                           $cit->nombre=$nombre;
-                           $cit->apellido=$_POST['apellido'];
-                           $cit->telefono=$_POST['telefono'];
-                           $cit->direccion=$_POST['direccion'];
-                           $cit->email=$email;
-                           $cit->id_canal=2;
-                           $cit->id_estado=2;
-                           $cit->comentario=$cuerpo;
-						   $cit->id_empleado=$usuario;
-
-                           $result=$cit->agregar();
-                           if($result>0){
-                              $result = 'se ingreso registro';
-                               $cit->Upsecqnos();
-                           }else{
-                              $result = 'error al enviar el msj';
-                           }
-
-               // $sql = "INSERT INTO `cf` (`nombre`,`email`,`asunto`,`mensaje`) VALUES ('{$_POST['nombre']}','{$_POST['email']}','{$_POST['asunto']}','{$_POST['mensaje']}')";
-               // mysql_query($sql) or die(mysql_error());
- 
-
-                // si el envio fue exitoso reseteamos lo que el usuario escribio:
-//                $_POST['nombre'] = '';
-//                $_POST['email'] = '';
-//                $_POST['asunto'] = '';
-//                $_POST['mensaje'] = '';
- 
-            }
-        }
-    }
-	
+                $envio6_3="Citas programadas";
 	}
 	
 function fechainteligente($timestamp) 
@@ -207,7 +150,7 @@ function ConSoSinS($val, $sentence)
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Alfinte S.A de CV</a>
+                <a class="navbar-brand" href="modulo_ventas.php">Alfinte S.A de CV</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -400,7 +343,7 @@ function ConSoSinS($val, $sentence)
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="/Alfinte/logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -442,6 +385,7 @@ function ConSoSinS($val, $sentence)
                                                                                             $url_asignada11=$urlasig11;
                                                                                             $url_asignada12=$urlasig12;
                                                                                             $url_asignada13=$urlasig13;
+                                                                                            $url_asignada6_3=$urlasig6_3;
                                                                                             $ir_a2=$envio2;
                                                                                             $ir_a3=$envio3;
                                                                                             $ir_a4=$envio4;
@@ -454,6 +398,7 @@ function ConSoSinS($val, $sentence)
                                                                                             $ir_a11=$envio11;
                                                                                             $ir_a12=$envio12;
                                                                                             $ir_a13=$envio13;
+                                                                                            $ir_a6_3=$envio6_3;
                                                                                             echo"<a href='".$url_asignada."'>".$ir_a."<span class='fa arrow'></span></a> 
                                                                                             <ul class='nav nav-third-level'>
                                                                                                 <li>
@@ -472,6 +417,9 @@ function ConSoSinS($val, $sentence)
                                                                                                 <ul class='nav nav-third-level'>
                                                                                                     <li>
                                                                                                         <a href='".$url_asignada6."'>".$ir_a6."</a>
+                                                                                                    </li>
+                                                                                                    <li>
+                                                                                                        <a href='".$url_asignada6_3."'>".$ir_a6_3."</a>
                                                                                                     </li>
                                                                                                     <li>
                                                                                                         <a href='".$url_asignada7."'>".$ir_a7."</a>
@@ -612,7 +560,7 @@ function ConSoSinS($val, $sentence)
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-						 <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+						 <li><a href="/Alfinte/logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                 </div>
@@ -624,80 +572,71 @@ function ConSoSinS($val, $sentence)
             <!-- Page Content -->
             <div id="page-wrapper">
             <div class="row">
-                <form role="form" action="crear_cita_local.php"  method="post">
-                                    <div class="col-lg-8">
-                                            <div class="panel panel-primary">
-                                                <div class="panel-heading">
-                                                    Ingreso de Nueva Cita
-                                                </div>
-
-                                                <div class="panel-body">
-                                                    <div class="col-xs-6">
-                                                        <div class="form-group">
-                                                            <label>Nombre</label>
-                                                            <input class="form-control" name="nombre" placeholder="nombre" required="Ingrese el nombre" pattern="[a-Z]">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label>Telefono</label>
-                                                            <input class="form-control" type="number"name="telefono" required="Ingrese el telefono" placeholder="7xxx-xxx o 2xxx-xxxx" pattern="\d{4}[\-]\d{4}" min="2000">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label>Email</label>
-                                                            <input type="email" class="form-control" name="email" placeholder="email" required="Ingrese el email">
-
-                                                        </div>
-
-                                                    </div>
-                                                    <div class="col-xs-6">
-                                                        <div class="form-group">
-                                                            <label>Apellido</label>
-                                                            <input class="form-control" name="apellido" placeholder="apellido" required="Ingrese el apellido" pattern="[a-Z]">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label>Direccion</label>
-                                                            <input class="form-control" name="direccion"placeholder="direccion" required="Direccion" >
-
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label>Fecha de visita</label>
-                                                           
-                                                            <input class='form-control' type='date' name='fecha_programada'  required  min='<?php echo date("Y")?>-<?php echo date("m")?>-<?php echo date("d")?>' max='2015-12-31'>        
-
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label>Hora de visita</label>
-                                                            <input class="form-control" type="time" name="hora_programada" required="Ingrese la hora de visita" min="08:30:00" max="17:30:00">
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-8">
-                                                        <div class="form-group">
-                                                            <label>Asunto de la cita</label>
-                                                            <textarea class="form-control" placeholder="comentarios" name="mensaje" rows="4" required="Ingrese el asunto" pattern="[a-Z-0-9]{100}"></textarea>
-                                                        </div>
-                                                    </div>
-                                                    
-                                                    
-                                                </div> 
-                                                <div class="panel-footer">
-                                                    <button type="submit" class="btn btn-outline btn-success" name="enviar">Aceptar</button>
-                                                     <?php if(isset($result)) { echo $result; } ?>
-                                                    <button type="button" class="btn btn-outline btn-danger"><a href="modulo_ventas.php">Cancelar</a></button>
-                                                     <button type="reset" class="btn btn-outline btn-warning">Comenzar de nuevo</button>
-                                                </div>
-                                            </div>
-                                        </div>
-					
-					
-				</form>
-                    </div>
+                <div class="col-lg-12">
+                    <h1 class="page-header">Modulo de Ventas</h1>
+                </div>
+                <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
+            <div class="row">
+            </div>	
+
+            
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Muestra el listado de las citas mas recientes
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                    <thead>
+                                        <tr>
+                                            <th>Cita</th>
+                                            <th>Fecha</th>
+                                            <th>Nombre</th>
+                                            <th>Canal</th>
+                                            <th>Cancelar</th>
+                                        </tr>
+                                    </thead>
+									<tbody>
+									<?php
+                                        $rcitas = $cit->mostrar_citas_vendedor($usuario);
+                                        foreach ($rcitas as $ci) {
+                                            echo "
+										<tr>
+											<td>{$ci['id_cita']}</td>
+											<td>{$ci['fecha_creacion']}</td>
+											<td>{$ci['nombre']}</td>
+											<td>{$ci['descripcion']}</td>
+											<td>";
+                                            ?>
+							<?php echo "<a href='cancelar_cita.php?id=".$ci['id_cita']."'?>Cancelar cita</a> "?>				
+											<?php
+                                                        
+                                                                                                echo "</td>
+										</tr>";			
+											};
+											
+											?>
+				
+                                                                       </tbody>
+                                </table>                                  
+                            </div>
+                            <!-- /.table-responsive -->
+
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
             </div>
+            
             <!-- /#wrapper -->
         </div>
-            <!-- jQuery Version 1.11.0 -->
-             <!-- jQuery Version 1.11.0 -->
             <script src="../js/jquery-1.11.0.js"></script>
 
             <!-- Bootstrap Core JavaScript -->
@@ -712,11 +651,11 @@ function ConSoSinS($val, $sentence)
             <!-- DataTables JavaScript -->
             <script src="../js/plugins/dataTables/jquery.dataTables.js"></script>
             <script src="../js/plugins/dataTables/dataTables.bootstrap.js"></script>
-            <script>
-        $(document).ready(function() {
-            $('#dataTables-example').dataTable();
-        });
-                </script>
+    <script>
+    $(document).ready(function() {
+        $('#dataTables-example').dataTable();
+    });
+    </script>
     
     </body>
     

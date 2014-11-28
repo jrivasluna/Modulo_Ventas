@@ -1,4 +1,4 @@
-    <?php
+<?php
     class cita{
 
     public $id_cita;
@@ -14,8 +14,6 @@
     public $id_estado;
     public $comentario;
 	public $id_empleado;
-	public $nit;
-	public $id_cliente;
 
 
      public function agregar(){
@@ -66,7 +64,7 @@
            return $resultado;
 		}
 		 
-		public function mostrar_supervisor(){
+		public function mostrar(){
         $query="SELECT cita.`id_cita`,
 						`fecha_creacion`,
 						`nombre`,
@@ -79,7 +77,7 @@
 						FROM `cita`
 						INNER JOIN  `canal` ON `cita`.id_canal = `canal`.id_canal
 						INNER JOIN  `cita_estado` ON `cita`.id_estado = `cita_estado`.id_citaest 
-						where id_empleado=4 and id_estado=1
+						where id_empleado=4 ad id_estado=1
 						";
         $rs=mysql_query($query);
         $array=array();
@@ -324,10 +322,9 @@ public function mostrar_numero_cita_penditente2(){
         while($fila=mysql_fetch_assoc($rs)){
           $array[]=$fila;
         }
-        
              return $array;
         }
-        public function mostrar_citas_asignadas_total($user){
+         public function mostrar_citas_asignadas_total($user){
         $query="SELECT cita.`id_cita`, cita_estado.`valor`,CONCAT(`nombre`,' ',`apellido`) as nombre, `comentario` FROM `cita` INNER JOIN `canal` ON `cita`.id_canal = `canal`.id_canal INNER JOIN `cita_estado` ON `cita`.id_estado = `cita_estado`.id_citaest INNER JOIN	 `usuario` on `cita`.id_empleado = `usuario`.id_empleado where `usuario`='".$user."'";
         $rs=mysql_query($query);
         $array=array();
@@ -336,7 +333,7 @@ public function mostrar_numero_cita_penditente2(){
         }
              return $array;
         }
-        public function mostrar_citas_programadas($user){
+		public function mostrar_citas_programadas($user){
         $query="SELECT cita.`id_cita`,CONCAT(`nombre`,' ',`apellido`) as nombre,cita.`fecha_programada`, `comentario` FROM cita  INNER JOIN	 `usuario` on `cita`.id_empleado = `usuario`.id_empleado where `usuario`='".$user."' and id_estado=2";
         $rs=mysql_query($query);
         $array=array();
@@ -347,6 +344,11 @@ public function mostrar_numero_cita_penditente2(){
         }
         public function confirmar_cita($fecha_programada,$hora,$id_cita){
     $query="UPDATE  cita  SET fecha_programada='".$fecha_programada."',hora='".$hora."',id_estado='2' where id_cita='".$id_cita."'";
+    $result=mysql_query($query) or die ("Problema con query de Insertar");
+     return $result;
+    }
+    public function cancelar_cita($comentario,$id_cita){
+    $query="UPDATE  cita  SET comentario='".$comentario."',id_estado='3' where id_cita='".$id_cita."'";
     $result=mysql_query($query) or die ("Problema con query de Insertar");
      return $result;
     }
@@ -416,5 +418,6 @@ public function mostrar_numero_cita_penditente2(){
 			return $result;
 		}
 	/*************************************************************************/
+		
 }
 ?>
