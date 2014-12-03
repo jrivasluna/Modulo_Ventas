@@ -8,6 +8,7 @@ include('../clases/cita.class.php');
 include('../clases/materia.class.php');
 include('../clases/articulo.class.php');
 include('../clases/empleado.class.php');
+include('../clases/cotizacion.class.php');
 require_once '../clases/sesion.class.php';
 $cit=new cita();
 //$login=new Login();
@@ -31,6 +32,7 @@ $cit=new cita();
 $art=new articulo();
 $materiales=new materia();
 $emp=new empleado();
+$cot= new cotizacion();
 
 	$cargo=$cit->sabercargo($usuario);
 	if ($cargo==1)
@@ -684,12 +686,10 @@ function ConSoSinS($val, $sentence)
 											}
 											else if($cargo==2)
 											{
-												$rcate=$cit->cantidad_cita_confirmada($usuario);
+												$rcate=$cot->mostrar_cotizacion();
 											};
-										
-										$rcate=$cit->cantidad_or_user($usuario);
 											foreach($rcate as $ci){
-											$numeroO=$ci['numeroOr'];
+											$numeroO=$ci['numeroCot'];
 											//echo"<div class='huge'>{$ci['numeroCita']}<div>";
 											};
 									?>
@@ -698,9 +698,9 @@ function ConSoSinS($val, $sentence)
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="consultar_cotizacion.php">
                             <div class="panel-footer">
-                                <span class="pull-left">Ver Detalles</span>
+                                <span class="pull-left">Ver Cotizaciones</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>

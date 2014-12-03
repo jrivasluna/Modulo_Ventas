@@ -63,13 +63,7 @@
 		}
 		 
 		public function mostrar(){
-        $query="SELECT cotizacion.`id_cotizacion`,
-						`resumen`,
-						`total`,
-                        `id_cotizacion_estado`
-						FROM `cotizacion`
-                        where id_cita=1
-						";
+        $query="SELECT cotizacion.`id_cotizacion`, `resumen`, `total`, cotizacion_estado.`descripcion` FROM `cotizacion` INNER JOIN `cotizacion_estado` ON `cotizacion`.id_cotizacion_estado= `cotizacion_estado`.id_estado where id_cita=1";
         $rs=mysql_query($query);
         $array=array();
         while($fila=mysql_fetch_assoc($rs)){
@@ -408,6 +402,15 @@ public function mostrar_numero_cita_penditente2(){
 				$result=mysql_query($query) or die ("Problema con query de Insertar");
 			return $result;
 		}
+                public function mostrar_cotizacion(){
+        $query="SELECT COUNT(id_cotizacion) as numeroCot from cotizacion where id_cotizacion_estado=1";
+        $rs=mysql_query($query);
+        $array=array();
+        while($fila=mysql_fetch_assoc($rs)){
+          $array[]=$fila;
+        }
+             return $array;
+        }
 	/*************************************************************************/
 		
 }

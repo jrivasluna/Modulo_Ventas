@@ -588,7 +588,7 @@ function ConSoSinS($val, $sentence)
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Muestra el listado de las citas mas recientes
+                            Muestra el listado de las cotizaciones mas recientes
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -600,7 +600,7 @@ function ConSoSinS($val, $sentence)
                                             <th>Resumen</th>
                                             <th>Total</th>
                                             <th>Estado</th>
-                                            <th>aprovar</th>
+                                            <th>Editar</th>
                                         </tr>
                                     </thead>
 									<tbody>
@@ -612,10 +612,10 @@ function ConSoSinS($val, $sentence)
 											<td>{$co['id_cotizacion']}</td>
 											<td>{$co['resumen']}</td>
 											<td>{$co['total']}</td>
-											<td>{$co['id_cotizacion_estado']}</td>
+											<td>{$co['descripcion']}</td>
 											<td>";
                                             ?>
-							<?php echo "<a href='cancelar_cita.php?id=".$co['id_cotizacion']."'?>Cancelar cita</a> "?>				
+							<?php echo "<a href='cancelar_cita.php?id=".$co['id_cotizacion']."'?>Modificar</a> "?>				
 											<?php
                                                         
                                                                                                 echo "</td>
