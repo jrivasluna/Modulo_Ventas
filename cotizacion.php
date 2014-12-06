@@ -327,6 +327,8 @@ $id_cita=$_GET['id'];
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="#"><i class="fa fa-user fa-fw"></i> <?php echo $sesion->get("usuario"); ?> Profile</a>
                         </li>
+                        <li><a href="/Alfinte/manuales/manuales.php"><i class="fa fa-gear fa-fw"></i> Manules</a>
+                        </li>
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>

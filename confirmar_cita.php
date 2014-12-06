@@ -346,6 +346,8 @@ function ConSoSinS($val, $sentence)
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="#"><i class="fa fa-user fa-fw"></i> <?php echo $sesion->get("usuario"); ?> Profile</a>
                         </li>
+                        <li><a href="/Alfinte/manuales/manuales.php"><i class="fa fa-gear fa-fw"></i> Manules</a>
+                        </li>
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
@@ -791,7 +793,8 @@ function ConSoSinS($val, $sentence)
                                                            <input type='hidden' name='id_cita' value='".$id_cita."'>
                                                         </div>
                                                     </div>
-                                                    
+                                                    					
+
                                                     
                                                 </div> 
                                                 <div class='panel-footer'>
@@ -800,7 +803,6 @@ function ConSoSinS($val, $sentence)
                                                 </div>
                                             </div>
                                         </div>
-					
 					
 				</form>";
                                        

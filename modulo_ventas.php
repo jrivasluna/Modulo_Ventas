@@ -3,16 +3,15 @@ include'../libreria/conf.php';
 include'../libreria/conexion.php';
 include('../clases/usuario.php');
 include('../clases/login.class.php');
-//include('clases/sesion.class.php');
 include('../clases/cita.class.php');
 include('../clases/materia.class.php');
 include('../clases/articulo.class.php');
 include('../clases/empleado.class.php');
+include('../clases/cotizacion.class.php');
 require_once '../clases/sesion.class.php';
 $cit=new cita();
-//$login=new Login();
-     $sesion = new Sesion();
-   $usuario = $sesion->get("usuario");
+$sesion = new Sesion();
+$usuario = $sesion->get("usuario");
    if( $usuario == false )  {
       header("Location: login.php");
    }  else  {
@@ -26,7 +25,7 @@ $cit=new cita();
 	$update_cita= $cit->cancelar_cita($comentario,$id_cita);}
         
 $emp= new empleado();
-   
+$cot= new cotizacion();
 $art=new articulo();
 $materiales=new materia();
 	$cargo=$cit->sabercargo($usuario);
@@ -341,7 +340,9 @@ function ConSoSinS($val, $sentence)
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="#"><i class="fa fa-user fa-fw"></i> <?php echo $sesion->get("usuario"); ?> Profile</a>
                         </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        <li><a href="/Alfinte/manuales/manuales.php"><i class="fa fa-gear fa-fw"></i> Manules</a>
+                        </li>
+                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
                         <li><a href="/Alfinte/logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
@@ -662,12 +663,10 @@ function ConSoSinS($val, $sentence)
 											}
 											else if($cargo==2)
 											{
-												$rcate=$cit->cantidad_cita_confirmada($usuario);
+												$rcate=$cot->mostrar_cotizacion();
 											};
-										
-										$rcate=$cit->cantidad_or_user($usuario);
 											foreach($rcate as $ci){
-											$numeroO=$ci['numeroOr'];
+											$numeroO=$ci['numeroCot'];
 											//echo"<div class='huge'>{$ci['numeroCita']}<div>";
 											};
 									?>
@@ -676,9 +675,9 @@ function ConSoSinS($val, $sentence)
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="consultar_cotizacion.php">
                             <div class="panel-footer">
-                                <span class="pull-left">Ver Detalles</span>
+                                <span class="pull-left">Ver Cotizaciones</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
